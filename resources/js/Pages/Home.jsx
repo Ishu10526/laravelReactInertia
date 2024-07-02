@@ -1,5 +1,5 @@
 export default function Home(){
     return <>
-    <h1>Hellow User</h1>
+    <p className="bg-green-700">Hellow User</p>
     </>
 }
