@@ -1,14 +1,14 @@
 import { useForm } from "@inertiajs/react";
 
-export default function Create() {
-    const { data, setData, post, errors, processing } = useForm({
-        title: "",
-        body: "",
+export default function Edit({post}) {
+    const { data, setData, put, errors, processing } = useForm({
+        title: post.title,
+        body: post.body,
     });
 
     function submit(e) {
         e.preventDefault()
-        post("/posts")
+        put(`/posts/${post.id}`)
     }
 
     console.log(errors);
@@ -31,7 +31,7 @@ export default function Create() {
                             className="border-2 p-2" ></textarea>
                         {errors.body && <p className="text-red-500">{errors.body}</p>}
                     </div>
-                    <button className="bg-blue-900 rounded-lg p-2 text-white hover:bg-gray-800"> Create Post</button>
+                    <button className="bg-blue-900 rounded-lg p-2 text-white hover:bg-gray-800"> Update Post</button>
                 </div>
             </form>
 
